@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TimeoutLimit__c</fullName>
+    <defaultValue>1000 * 5</defaultValue>
+    <description>How long to wait for a response before giving up in milliseconds. Must be between 1 and 120000ms.</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>How long to wait for a response before giving up in milliseconds. Must be between 1 and 120000ms.</inlineHelpText>
+    <label>Timeout Limit</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

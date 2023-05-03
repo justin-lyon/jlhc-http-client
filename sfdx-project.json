@@ -3,10 +3,21 @@
     {
       "path": "force-app",
       "default": true
+    },
+    {
+      "path": "force-app/main",
+      "package": "jlhc",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
     }
   ],
-  "name": "apex-http-client",
-  "namespace": "",
+  "namespace": "jlhc",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "57.0"
+  "sourceApiVersion": "57.0",
+  "packageAliases": {
+    "jlhc": "0Ho8a000000blNQCAY",
+    "jlhc@1.0.0": "04t8a0000017VVeAAM"
+  }
 }

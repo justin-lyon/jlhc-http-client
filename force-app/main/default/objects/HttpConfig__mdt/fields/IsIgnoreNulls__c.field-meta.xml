@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsIgnoreNulls__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If true, remove null values before serializing the JSON Payloads.</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>If true, remove null values before serializing the JSON Payloads.</inlineHelpText>
+    <label>Is Ignore Nulls?</label>
+    <type>Checkbox</type>
+</CustomField>

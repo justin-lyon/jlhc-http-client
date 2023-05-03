@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HttpConfig__c</fullName>
+    <description>The Http Config that this Header belongs to.</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Http Config</label>
+    <referenceTo>HttpConfig__mdt</referenceTo>
+    <relationshipLabel>Http Config Headers</relationshipLabel>
+    <relationshipName>HttpConfigHeaders</relationshipName>
+    <required>true</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,18 +1,56 @@
-# Salesforce DX Project: Next Steps
+# jlhc http-client
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This managed package provides an HttpClient API and CustomMetadata config for your Apex HttpRequests.
 
-## How Do You Plan to Deploy Your Changes?
+## Install
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+### By SF CLI
 
-## Configure Your Salesforce DX Project
+`sf package install --package 04t8a0000017VVeAAM --target-org <your target org>`
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### By URL
 
-## Read All About It
+[Install to Sandbox](https://test.salesforce.com/packagingSetupUI/ipLanding.app?apvId=04t8a0000017VVeAAM)
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+[Install to PROD](https://login.salesforce.com/packagingSetupUI/ipLanding.app?apvId=04t8a0000017VVeAAM)
+
+## Usage
+```java
+// Assumes you have the Remote Site Setting configured
+// Define Client using HttpConfig.DadJokesAPI Custom Metadata as base config
+jlhc.HttpClient client = new jlhc.HttpClient('https://icanhazdadjoke.com', 'DEFAULT');
+
+jlhc.HttpConfig options = new jlhc.HttpConfig();
+options.headers = new Map<String, String> {
+  'Accept' => 'text/plain'
+};
+
+// GET using Client's config
+HttpResponse res = client.get('/', options);
+String joke = res.getBody();
+
+System.debug(res);
+System.debug(joke);
+```
+
+## HttpClient
+
+> TODO
+
+## HttpConfig__mdt
+
+Fields map to the arguments on the Apex HttpRequest class. Use these fields to define how the HttpRequest is sent.
+
+## HttpConfigHeader__mdt
+
+Child of HttpConfig__mdt. Define Headers as Key-Value pairs to be sent with any requests that use the parent HttpConfig.
+
+## Cascading HttpConfig
+
+HttpConfig__mdt.Parent__c allows you to specify hierarchy in the HttpConfig. Configurations are loaded parents first, cascading configuration as it moves down the tree.
+
+In memory config takes highest priority but can only be used in individual calls from the Client.
+
+## More Examples
+
+See `force-app/support` and `scripts/apex` for additional examples of cascading.
