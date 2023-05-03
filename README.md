@@ -35,6 +35,63 @@ System.debug(joke);
 
 ## HttpClient
 
+### DELETE
+
+`HttpResponse del(String path)`
+* DELETE with a relative path.
+
+`HttpResponse del(String path, jlhc.HttpConfig options)`
+* DELETE with a relative path and options.
+
+### GET
+
+`HttpResponse get()`
+* GET using simply the baseUrl used to construct the HttpClient.
+
+`HttpResponse get(jlhc.HttpConfig options)`
+* GET with options.
+
+`HttpResponse get(String path)`
+* GET with relative path appended to baseUrl.
+
+`HttpResponse get(String path, jlhc.HttpConfig options)`
+* GET with relative path appended to baseUrl and options.
+
+### PATCH
+
+`HttpResponse patch(String path, Object body)`
+* PATCH with relative path and a body.
+
+`HttpResponse patch(String path, Object body, jlhc.HttpConfig options)`
+* PATCH with relative path, body, and options.
+
+### POST
+
+`HttpResponse post(String path, Object body)`
+* POST with relative path and a body.
+
+`HttpResponse post(String path, Object body, jlhc.HttpConfig options)`
+* POST with relative path, body, and options.
+
+### PUT
+
+`HttpResponse put(String path, Object body)`
+* PUT with relative path and a body.
+
+`HttpResponse put(String path, Object body, jlhc.HttpConfig options)`
+* PUT with relative path, body, and options.
+
+### Omni method
+
+`HttpResponse call(jlhc.HttpMethod, String path, Object body, jlhc.HttpConfig options)`
+* Allows calling any jlhc.HttpMethod with any combination of path, body, and options.
+
+## HttpConfig
+
+> TODO
+
+## HttpMethod
+
 > TODO
 
 ## HttpConfig__mdt
