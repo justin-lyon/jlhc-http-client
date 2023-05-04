@@ -182,4 +182,29 @@ private class HttpClientTest {
 
     System.Assert.isTrue(isSuccess);
   }
+
+  @IsTest
+  static void it_should_build_url_with_query_params() {
+    String expectedUrl = 'https://some.com/some/path?galantis=damn&david=guetta&ft=mnek';
+    Map<String, String> params = new Map<String, String> {
+      'galantis' => 'damn',
+      'david' => 'guetta',
+      'ft' => 'mnek'
+    };
+    String actualUrl = new HttpClient('https://some.com/', 'DEFAULT').buildUrl('/some/path/', params);
+
+    System.Assert.areEqual(expectedUrl, actualUrl);
+  }
+
+  @IsTest
+  static void it_should_build_url_with_additional_query_params() {
+    String expectedUrl = 'https://some.com/some/path?galantis=damn&david=guetta&ft=mnek';
+    Map<String, String> params = new Map<String, String> {
+      'david' => 'guetta',
+      'ft' => 'mnek'
+    };
+    String actualUrl = new HttpClient('https://some.com/', 'DEFAULT').buildUrl('/some/path?galantis=damn', params);
+
+    System.Assert.areEqual(expectedUrl, actualUrl);
+  }
 }

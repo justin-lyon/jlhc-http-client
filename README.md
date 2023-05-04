@@ -6,13 +6,13 @@ This managed package provides an HttpClient API and CustomMetadata config for yo
 
 ### By SF CLI
 
-`sf package install --package 04t8a0000017VVeAAM --target-org <your target org>`
+`sf package install --package 04t8a0000017VW8AAM --target-org <your target org>`
 
 ### By URL
 
-[Install to Sandbox](https://test.salesforce.com/packagingSetupUI/ipLanding.app?apvId=04t8a0000017VVeAAM)
+[Install to Sandbox](https://test.salesforce.com/packagingSetupUI/ipLanding.app?apvId=04t8a0000017VW8AAM)
 
-[Install to PROD](https://login.salesforce.com/packagingSetupUI/ipLanding.app?apvId=04t8a0000017VVeAAM)
+[Install to PROD](https://login.salesforce.com/packagingSetupUI/ipLanding.app?apvId=04t8a0000017VW8AAM)
 
 ## Usage
 ```java
@@ -24,6 +24,11 @@ jlhc.HttpConfig options = new jlhc.HttpConfig();
 options.headers = new Map<String, String> {
   'Accept' => 'text/plain'
 };
+options.queryParams = new Map<String, String> {
+  'opt1' => 'a',
+  'opt2' => 'b'
+};
+
 
 // GET using Client's config
 HttpResponse res = client.get('/', options);

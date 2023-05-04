@@ -4,6 +4,7 @@ global class HttpConfig {
   private String name;
 
   global Map<String, String> headers = new Map<String, String>();
+  global Map<String, String> queryParams = new Map<String, String>();
   global String clientCertName;
   global Integer wait_ms;
   global Boolean isCompressed;
@@ -62,6 +63,10 @@ global class HttpConfig {
 
     if (!newCfg.headers.isEmpty()) {
       mergedCfg.headers.putAll(newCfg.headers);
+    }
+
+    if (!newCfg.queryParams.isEmpty()) {
+      mergedCfg.queryParams.putAll(newCfg.queryParams);
     }
 
     if (String.isNotBlank(newCfg.clientCertName)) {
