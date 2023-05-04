@@ -17,8 +17,7 @@ This managed package provides an HttpClient API and CustomMetadata config for yo
 ## Usage
 ```java
 // Assumes you have the Remote Site Setting configured
-// Define Client using HttpConfig.DadJokesAPI Custom Metadata as base config
-jlhc.HttpClient client = new jlhc.HttpClient('https://icanhazdadjoke.com', 'DEFAULT');
+jlhc.HttpClient client = new jlhc.HttpClient('https://icanhazdadjoke.com');
 
 jlhc.HttpConfig options = new jlhc.HttpConfig();
 options.headers = new Map<String, String> {
@@ -28,7 +27,6 @@ options.queryParams = new Map<String, String> {
   'opt1' => 'a',
   'opt2' => 'b'
 };
-
 
 // GET using Client's config
 HttpResponse res = client.get('/', options);
@@ -40,6 +38,15 @@ System.debug(joke);
 
 ## HttpClient
 
+### Constructors
+
+`HttpClient(String baseUrl)`
+* Create an HttpClient for a specific `baseUrl` accepting the DEFAULT config that comes with the package.
+
+`HttpClient(String baseUrl, String configDeveloperName)`
+* Create an HttpClient for a specific `baseUrl` and specific `HttpConfig__mdt`.
+
+### Methods
 ### DELETE
 
 `HttpResponse del(String path)`
