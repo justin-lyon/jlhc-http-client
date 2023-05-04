@@ -73,7 +73,7 @@ global class HttpClient {
     HttpConfig localConfig = this.config.appendConfig(options);
     HttpRequest req = new HttpRequestBuilder()
       .setMethod(method)
-      .setEndpoint(buildUrl(path))
+      .setEndpoint(buildUrl(path, localConfig.queryParams))
       .setBody(this.serializeBody(body, this.config.isIgnoreNulls))
       .setHeaders(localConfig.headers)
       .setClientCertificateName(localConfig.clientCertName)
@@ -114,11 +114,41 @@ global class HttpClient {
     return configs;
   }
 
-  private String buildUrl(final String path) {
+  @TestVisible
+  private String buildUrl(final String path, Map<String, String> params) {
     String cleanBaseUrl = this.baseUrl.removeEnd('/');
     String cleanPath = path.removeStart('/').removeEnd('/');
-    String fullUrl = String.format('{0}/{1}', new List<String> { cleanBaseUrl, cleanPath });
-    return fullUrl;
+    String fullUrl = cleanBaseUrl;
+    if (String.isNotBlank(cleanPath)) {
+      fullUrl +=  '/' + cleanPath;
+    }
+
+    Boolean urlHasParams = fullUrl.contains('?');
+    Boolean hasParams = !params.isEmpty();
+    String separator = '';
+    String queryString = '';
+
+    if (hasParams) {
+      separator = '?';
+      queryString = concatParams(params);
+    }
+
+    if (urlHasParams && hasParams) {
+      separator = '&';
+    }
+
+    return fullUrl + separator + queryString;
+  }
+
+  private String concatParams(Map<String, String> params) {
+    String template = '{0}={1}';
+    List<String> paramList = new List<String>();
+    for (String key : params.keySet()) {
+      String value = params.get(key);
+
+      paramList.add(String.format(template, new List<String> { key, value }));
+    }
+    return String.join(paramList, '&');
   }
 
   private String serializeBody(Object body, Boolean isIgnoreNulls) {
