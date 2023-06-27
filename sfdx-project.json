@@ -7,7 +7,7 @@
     {
       "path": "force-app/main",
       "package": "jlhc",
-      "versionNumber": "1.1.0.NEXT",
+      "versionNumber": "1.NEXT.0.0",
       "default": false,
       "versionDescription": "",
       "ancestorVersion": "HIGHEST"
@@ -19,6 +19,6 @@
   "packageAliases": {
     "jlhc": "0Ho8a000000blNQCAY",
     "jlhc@1.0.0": "04t8a0000017VVeAAM",
-    "jlhc@1.1.0": "04t8a0000017VW8AAM"
+    "jlhc@2.0.0": "04t8a000000uqz8AAA"
   }
 }

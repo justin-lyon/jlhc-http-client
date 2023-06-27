@@ -3,5 +3,5 @@
     <description>Http Configuration used by Salesforce to query off platform APIs.</description>
     <label>Http Config</label>
     <pluralLabel>Http Configs</pluralLabel>
-    <visibility>Protected</visibility>
+    <visibility>Public</visibility>
 </CustomObject>
