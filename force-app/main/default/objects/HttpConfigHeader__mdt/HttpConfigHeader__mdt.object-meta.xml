@@ -3,5 +3,5 @@
     <description>Headers associated with an Http Config.</description>
     <label>Http Config Header</label>
     <pluralLabel>Http Config Headers</pluralLabel>
-    <visibility>Protected</visibility>
+    <visibility>Public</visibility>
 </CustomObject>
